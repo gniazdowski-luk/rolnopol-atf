@@ -40,7 +40,7 @@ Before creating or updating tests, review `playwright.config.ts` to align with c
 
 When creating or updating automated tests:
 
-- Include meaningful tags directly in test titles (domain + priority, plus scenario tags when applicable).
+- Include tags directly in test titles (example: "@smoke @SM4 swagger page should be visible and loaded").
 - Try to use test id if available.
 - Never use `page.locator("body")` assertions (for example, avoid `toBeVisible()` on `body`).
 - Prefer assertions on meaningful page-specific elements (or URL) for page-load validation; avoid title checks unless the test explicitly verifies the title.
