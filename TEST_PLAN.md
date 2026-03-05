@@ -7,7 +7,7 @@
 
 ## 1. Scope
 
-Functional and smoke testing of the **Rolnopol** agricultural management system, covering:
+Functional and smoke testing of the **Rolnopol** agricultural management system.
 
 Out of scope: performance/load testing, security penetration testing, UI visual regression.
 
@@ -24,7 +24,7 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 
 ## 3. Test Areas & Cases
 
-3.1. Smoke tests
+### 3.1. Smoke tests
 
 - [x] SM1 should display Rolnopol in page title
 - [x] SM2 - login page should be visible and loaded
