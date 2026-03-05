@@ -1,8 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("@system @smoke @p4 should display Rolnopol in page title", async ({
-  page,
-}) => {
+test("@smoke @SM1 should display Rolnopol in page title", async ({ page }) => {
   const expected = {
     titlePattern: /Rolnopol/,
   };
@@ -11,7 +9,7 @@ test("@system @smoke @p4 should display Rolnopol in page title", async ({
   await expect(page).toHaveTitle(expected.titlePattern);
 });
 
-test("@auth @smoke @p1 login page should be visible and loaded", async ({
+test("@smoke @SM2 login page should be visible and loaded", async ({
   page,
 }) => {
   const expected = {
@@ -30,7 +28,7 @@ test("@auth @smoke @p1 login page should be visible and loaded", async ({
   );
 });
 
-test("@auth @smoke @p1 register page should be visible and loaded", async ({
+test("@smoke @SM3 register page should be visible and loaded", async ({
   page,
 }) => {
   const expected = {
@@ -47,4 +45,30 @@ test("@auth @smoke @p1 register page should be visible and loaded", async ({
   await expect(page.getByTestId("register-submit-btn")).toContainText(
     expected.submitButtonText,
   );
+});
+
+test("@smoke @SM4 swagger page should be visible and loaded", async ({
+  page,
+}) => {
+  await page.goto("/swagger.html");
+
+  await expect.soft(page.locator("#swagger-frame")).toBeVisible();
+
+  const swaggerFrame = page.frameLocator("#swagger-frame");
+  const titleLocator = swaggerFrame.locator("h2.title");
+  await expect(titleLocator).toContainText(/Rolnopol/);
+});
+
+test("@smoke @SM5 docs page should be visible and loaded", async ({ page }) => {
+  const expected = {
+    sidebarTitle: "Contents",
+  };
+
+  await page.goto("/docs.html");
+
+  await expect
+    .soft(page.getByTestId("docs-sidebar-title"))
+    .toContainText(expected.sidebarTitle);
+  await expect.soft(page.getByTestId("docs-nav")).toBeVisible();
+  await expect(page.getByTestId("docs-content")).toBeVisible();
 });
