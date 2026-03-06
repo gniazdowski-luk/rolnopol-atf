@@ -26,8 +26,9 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 
 ### 3.1. Smoke tests
 
-- [x] SM1 should display Rolnopol in page title
-- [x] SM2 - login page should be visible and loaded
-- [x] SM3 - register page should be visible and loaded
-- [x] SM4 - swagger page should be visible and loaded
-- [x] SM5 - docs page should be visible and loaded
+- [x] HOME-1 - should display Rolnopol in page title
+- [x] LOGIN-1 - login page should be visible and loaded
+- [x] REG-1 - register page should be visible and loaded
+- [x] API-1 - swagger page should be visible and loaded
+- [x] DOCS-1 - docs page should be visible and loaded
+- [x] REG-2 - successful user registration
