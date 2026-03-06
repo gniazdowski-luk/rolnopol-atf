@@ -1,0 +1,36 @@
+import { type Locator, type Page } from "@playwright/test";
+
+export class RegisterPage {
+  readonly page: Page;
+  readonly form: Locator;
+  readonly subtitle: Locator;
+  readonly emailInput: Locator;
+  readonly displayNameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly submitButton: Locator;
+  readonly alert: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+    this.form = page.getByTestId("register-form");
+    this.subtitle = page.getByTestId("register-subtitle");
+    this.emailInput = page.getByTestId("email-input");
+    this.displayNameInput = page.getByTestId("display-name-input");
+    this.passwordInput = page.getByTestId("password-input");
+    this.submitButton = page.getByTestId("register-submit-btn");
+    this.alert = page.getByRole("alert");
+  }
+
+  async goto() {
+    await this.page.goto("/register.html");
+  }
+
+  async register(email: string, password: string, displayName?: string) {
+    await this.emailInput.fill(email);
+    if (displayName !== undefined) {
+      await this.displayNameInput.fill(displayName);
+    }
+    await this.passwordInput.fill(password);
+    await this.submitButton.click();
+  }
+}
