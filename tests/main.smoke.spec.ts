@@ -1,17 +1,22 @@
 import { expect, test } from "@playwright/test";
+import { DocsPage } from "../pages/DocsPage";
+import { HomePage } from "../pages/HomePage";
+import { LoginPage } from "../pages/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage";
+import { SwaggerPage } from "../pages/SwaggerPage";
 import { generateEmail } from "../src/helpers/generateEmail";
 
 test("@smoke @HOME-1 should display Rolnopol in page title", async ({
   page,
 }) => {
   // Arrange
+  const homePage = new HomePage(page);
   const expected = {
     titlePattern: /Rolnopol/,
   };
 
   // Act
-  await page.goto("/");
+  await homePage.goto();
 
   // Assert
   await expect(page).toHaveTitle(expected.titlePattern);
@@ -21,55 +26,51 @@ test("@smoke @LOGIN-1 login page should be visible and loaded", async ({
   page,
 }) => {
   // Arrange
+  const loginPage = new LoginPage(page);
   const expected = {
     subtitle: "User Login & Account Access",
     submitButtonText: "Login",
   };
 
   // Act
-  await page.goto("/login.html");
+  await loginPage.goto();
 
   // Assert
-  await expect.soft(page.getByTestId("login-form")).toBeVisible();
-  await expect
-    .soft(page.getByTestId("login-subtitle"))
-    .toContainText(expected.subtitle);
-  await expect(page.getByTestId("login-submit-btn")).toHaveText(
-    expected.submitButtonText,
-  );
+  await expect.soft(loginPage.form).toBeVisible();
+  await expect.soft(loginPage.subtitle).toContainText(expected.subtitle);
+  await expect(loginPage.submitButton).toHaveText(expected.submitButtonText);
 });
 
 test("@smoke @API-1 swagger page should be visible and loaded", async ({
   page,
 }) => {
+  // Arrange
+  const swaggerPage = new SwaggerPage(page);
+
   // Act
-  await page.goto("/swagger.html");
+  await swaggerPage.goto();
 
   // Assert
-  await expect.soft(page.locator("#swagger-frame")).toBeVisible();
-
-  const swaggerFrame = page.frameLocator("#swagger-frame");
-  const titleLocator = swaggerFrame.locator("h2.title");
-  await expect(titleLocator).toContainText(/Rolnopol/);
+  await expect.soft(swaggerPage.swaggerFrame).toBeVisible();
+  await expect(swaggerPage.swaggerTitle).toContainText(/Rolnopol/);
 });
 
 test("@smoke @DOCS-1 docs page should be visible and loaded", async ({
   page,
 }) => {
   // Arrange
+  const docsPage = new DocsPage(page);
   const expected = {
     sidebarTitle: "Contents",
   };
 
   // Act
-  await page.goto("/docs.html");
+  await docsPage.goto();
 
   // Assert
-  await expect
-    .soft(page.getByTestId("docs-sidebar-title"))
-    .toContainText(expected.sidebarTitle);
-  await expect.soft(page.getByTestId("docs-nav")).toBeVisible();
-  await expect(page.getByTestId("docs-content")).toBeVisible();
+  await expect.soft(docsPage.sidebarTitle).toContainText(expected.sidebarTitle);
+  await expect.soft(docsPage.nav).toBeVisible();
+  await expect(docsPage.content).toBeVisible();
 });
 
 test("@smoke @REG-1 register page should be visible and loaded", async ({
