@@ -32,21 +32,13 @@ Examples:
 - `fix(config): update staging base url`
 - `docs: update setup steps`
 
-## Test Plan and Tagging System
+## Testing
 
-This project uses the Playwright Test framework for automated testing.
+This project uses the Playwright Test framework. All coding standards, patterns, and tagging conventions are defined in [CODING_STANDARDS.md](../CODING_STANDARDS.md).
 
-Before creating or updating tests, review `playwright.config.ts` to align with current test settings (such as projects, retries, timeouts, base URL, and reporters).
+When creating or updating tests:
 
-When creating or updating automated tests:
-
-- Structure every test using the **Arrange / Act / Assert** (AAA) pattern with inline comments:
-  - `// Arrange` — set up test data and expected values.
-  - `// Act` — perform navigation and user interactions.
-  - `// Assert` — verify the outcome with `expect` calls.
-  - Omit `// Arrange` if there is no setup needed (e.g., no expected values object).
-- Include tags directly in test titles (example: "@smoke @API-1 swagger page should be visible and loaded").
-- Try to use test id if available.
-- Never use `page.locator("body")` assertions (for example, avoid `toBeVisible()` on `body`).
-- Prefer assertions on meaningful page-specific elements (or URL) for page-load validation; avoid title checks unless the test explicitly verifies the title.
+- Review `playwright.config.ts` before writing or modifying tests to align with current settings (projects, retries, timeouts, base URL, reporters).
+- Each test should cover only one scenario.
+- Each test should have only one final hard assertion, though multiple soft assertions are allowed before it.
 - Always document every new test in `TEST_PLAN.md` under the appropriate section (for example, section 3.1 for smoke tests).
