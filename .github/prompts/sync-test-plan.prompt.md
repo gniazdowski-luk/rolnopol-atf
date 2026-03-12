@@ -5,4 +5,4 @@ description: Run after adding or updating Playwright tests or modifying TEST_PLA
 
 <!-- Tip: Use /create-prompt in chat to generate content with agent assistance -->
 
-Review the TEST_PLAN and verify that it matches the current implemented tests.
+Review the TEST_PLAN.md and verify that it matches the current implemented tests.
