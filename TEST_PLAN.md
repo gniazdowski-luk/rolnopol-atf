@@ -32,3 +32,6 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 - [x] API-1 - swagger page should be visible and loaded
 - [x] DOCS-1 - docs page should be visible and loaded
 - [x] REG-2 - successful user registration
+- [x] REG-3 - registration with too short password should show error
+- [x] REG-4 - registration with invalid email should show error
+- [x] REG-5 - registration with too short display name should show error

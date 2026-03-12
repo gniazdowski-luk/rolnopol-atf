@@ -2,9 +2,7 @@ import { expect, test } from "@playwright/test";
 import { DocsPage } from "../pages/DocsPage";
 import { HomePage } from "../pages/HomePage";
 import { LoginPage } from "../pages/LoginPage";
-import { RegisterPage } from "../pages/RegisterPage";
 import { SwaggerPage } from "../pages/SwaggerPage";
-import { generateEmail } from "../src/helpers/generateEmail";
 
 test("@smoke @HOME-1 should display Rolnopol in page title", async ({
   page,
@@ -71,41 +69,4 @@ test("@smoke @DOCS-1 docs page should be visible and loaded", async ({
   await expect.soft(docsPage.sidebarTitle).toContainText(expected.sidebarTitle);
   await expect.soft(docsPage.nav).toBeVisible();
   await expect(docsPage.content).toBeVisible();
-});
-
-test("@smoke @REG-1 register page should be visible and loaded", async ({
-  page,
-}) => {
-  // Arrange
-  const registerPage = new RegisterPage(page);
-  const expected = {
-    subtitle: "Create Your User Account",
-    submitButtonText: "Create Account",
-  };
-
-  // Act
-  await registerPage.goto();
-
-  // Assert
-  await expect.soft(registerPage.form).toBeVisible();
-  await expect.soft(registerPage.subtitle).toContainText(expected.subtitle);
-  await expect(registerPage.submitButton).toContainText(
-    expected.submitButtonText,
-  );
-});
-
-test("@smoke @REG-2 successful user registration", async ({ page }) => {
-  // Arrange
-  const registerPage = new RegisterPage(page);
-  const email = generateEmail();
-
-  // Act
-  await registerPage.goto();
-  await registerPage.register(email, "test123", "Test User");
-
-  // Assert
-  await expect
-    .soft(registerPage.alert)
-    .toContainText("Registration successful!");
-  await expect(page).toHaveURL(/login\.html/);
 });
