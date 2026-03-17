@@ -53,37 +53,6 @@ This launches the Playwright HTML reporter in your default browser, showing deta
 
 ---
 
-## Core Technologies
+## Contributing
 
-| Technology | Role |
-| --- | --- |
-| [Playwright](https://playwright.dev/) | Browser automation and test runner |
-| [TypeScript](https://www.typescriptlang.org/) | Primary language |
-| Node.js | Runtime environment |
-
----
-
-## Project Structure
-
-```
-rolnopol-atf/
-├── pages/            # Page Object classes (one per application page)
-├── tests/            # Test specification files
-├── src/
-│   └── helpers/      # Pure utility functions (no Playwright dependencies)
-├── playwright.config.ts  # Playwright configuration
-├── CODING_STANDARDS.md   # Contribution and coding guidelines
-└── TEST_PLAN.md          # Test plan and case registry
-```
-
----
-
-## Coding Standards
-
-All contributors should follow the guidelines defined in [CODING_STANDARDS.md](./CODING_STANDARDS.md). Key rules include:
-
-- Page Objects live in `pages/` and must not contain assertions.
-- Tests follow the **Arrange / Act / Assert** pattern with inline comments.
-- Tags are included in test titles (e.g. `@smoke @REG-1`).
-- Helper functions live in `src/helpers/` and must be side-effect free.
-- Every new test must be documented in [TEST_PLAN.md](./TEST_PLAN.md) under the appropriate section (e.g., section 3.1 for smoke tests).
+See [CODING_STANDARDS.md](./CODING_STANDARDS.md) for coding conventions and the test case registry in [TEST_PLAN.md](./TEST_PLAN.md).
