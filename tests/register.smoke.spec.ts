@@ -52,7 +52,7 @@ test("@smoke @REG-3 registration with too short password should show error", asy
   // Assert
   await expect.soft(page).toHaveURL(/register\.html/);
   await expect(registerPage.alert).toContainText(
-    "Must be at least 3 characters",
+    "Password must be at least 3 characters",
   );
 });
 
