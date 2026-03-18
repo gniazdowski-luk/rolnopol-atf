@@ -30,3 +30,17 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      # Upload the Playwright HTML report as an artifact for test result analysis
+      - name: Upload Playwright report
+        # Use the official GitHub Actions upload-artifact action (version 4)
+        uses: actions/upload-artifact@v4
+        # Execute this step regardless of whether previous steps succeeded or failed
+        if: always()
+        with:
+          # Name of the artifact that will be created and downloadable
+          name: playwright-report
+          # Path to the directory containing the report files to upload
+          path: playwright-report/
+          # Retain the artifact for 30 days before automatic deletion
+          retention-days: 30
