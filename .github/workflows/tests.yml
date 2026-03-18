@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - create-simple-github-action-script
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      app:
+        image: jaktestowac/rolnopol:latest
+        ports:
+          - 3000:3000
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run tests
+        run: npm test
