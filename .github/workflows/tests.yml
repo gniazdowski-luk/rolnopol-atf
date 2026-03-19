@@ -1,9 +1,10 @@
 name: Tests
 
 on:
-  push:
-    branches:
-      - create-simple-github-action-script
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   test:
