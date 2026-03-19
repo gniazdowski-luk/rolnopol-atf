@@ -33,11 +33,11 @@ jobs:
       - name: Upload Playwright report
         # Use the official GitHub Actions upload-artifact action (version 4)
         uses: actions/upload-artifact@v4
-        # Execute this step regardless of whether previous steps succeeded or failed
-        if: always()
+        # Execute this step only when previous steps succeeded or failed (skip on cancellation)
+        if: success() || failure()
         with:
-          # Name of the artifact that will be created and downloadable
-          name: playwright-report
+          # Name of the artifact that will be created and downloadable, unique per run attempt
+          name: playwright-report-${{ github.run_id }}-${{ github.run_attempt }}
           # Path to the directory containing the report files to upload
           path: playwright-report/
           # Retain the artifact for 30 days before automatic deletion
