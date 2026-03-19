@@ -69,4 +69,4 @@ jobs:
         with:
           name: playwright-report-${{ github.run_id }}-${{ github.run_attempt }}
           path: playwright-report/
-          retention-days: 30
+          retention-days: 14
