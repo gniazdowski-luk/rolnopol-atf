@@ -40,5 +40,5 @@ jobs:
           name: playwright-report
           # Path to the directory containing the report files to upload
           path: playwright-report/
-          # Retain the artifact for 30 days before automatic deletion
-          retention-days: 30
+          # Retain the artifact for 14 days before automatic deletion
+          retention-days: 14
