@@ -122,7 +122,7 @@ Before finishing, verify:
 - Mention which tests were run (if any).
 - Highlight assumptions, risks, or open questions.
 - Mark the plan as completed or ready for review.
-- Remove the plan file from `.ai-docs/` after work is done.
+- Remove the plan file from `.ai-docs/` after work is done. **Never remove the `.ai-docs/` directory itself — only the individual plan file.**
 
 ## When something is unclear
 
