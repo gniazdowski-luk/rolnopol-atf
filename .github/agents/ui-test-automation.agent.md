@@ -80,6 +80,7 @@ For UI tests:
 - Choose test cases that clearly map to the Test Plan.
 - Select tags strictly according to `TEST_PLAN.md`.
 - Keep the scope minimal (one intent per test).
+- Plan assertions so supporting checks use soft assertions where appropriate, with one final hard assertion for the main outcome.
 - Update the plan if the test design changes.
 
 ### 5. Implement
@@ -87,6 +88,7 @@ For UI tests:
 - Use Page Objects pattern.
 - Use stable locator strategies (role, label, text) whenever possible.
 - Avoid sleeps and magic timeouts.
+- Use `expect.soft` for non-terminal verifications that add context, and reserve the last assertion for the single required hard `expect`.
 - Reflect implementation progress in the plan.
 
 ### 6. Run regression tests (mandatory)
@@ -107,6 +109,7 @@ Before finishing, verify:
 
 - Tests include correct tags.
 - Assertions verify user-observable behavior.
+- Supporting assertions use `expect.soft` where appropriate, and the last assertion remains the only hard assertion.
 - No duplicated selectors or logic outside Page Objects.
 - Code style matches existing tests.
 - Update the plan with validation results.
