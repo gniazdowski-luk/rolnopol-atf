@@ -121,6 +121,7 @@ Before finishing, verify:
 - List touched files.
 - Mention which tests were run (if any).
 - Highlight assumptions, risks, or open questions.
+- Verify CI workflows (`.github/workflows/**/*.yml`) are updated if required by code or env changes.
 - Mark the plan as completed or ready for review.
 - Remove the plan file from `.ai-docs/` after work is done. **Never remove the `.ai-docs/` directory itself — only the individual plan file.**
 
