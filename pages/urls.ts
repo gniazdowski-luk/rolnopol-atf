@@ -4,4 +4,5 @@ export const URLs = {
   register: "/register.html",
   swagger: "/swagger.html",
   docs: "/docs.html",
+  profile: "/profile.html",
 } as const;

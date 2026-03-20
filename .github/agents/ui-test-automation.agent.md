@@ -36,10 +36,10 @@ Follow repository patterns by default. Do not override or reinterpret documents 
 ### 0. Create the action plan (before any action)
 
 - **Before performing any action** (including MCP exploration, writing code, or running tests),
-  create a plan of action in `.ai-temp/`.
+  create a plan of action in `.ai-docs/`.
 - Name the file descriptively, e.g.:
-  - `.ai-temp/ui-authentication-tests-plan.md`
-  - `.ai-temp/checkout-e2e-plan.md`
+  - `.ai-docs/ui-authentication-tests-plan.md`
+  - `.ai-docs/checkout-e2e-plan.md`
 - The plan should include:
   - Goal of the task
   - Assumptions and open questions
