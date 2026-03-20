@@ -4,7 +4,6 @@ export interface User {
   displayName?: string;
 }
 
-const EMAIL_DOMAIN = process.env.EMAIL_DOMAIN;
 const DEFAULT_EMAIL = process.env.DEFAULT_USER_EMAIL;
 const DEFAULT_PASSWORD = process.env.DEFAULT_USER_PASSWORD;
 

@@ -18,7 +18,6 @@ jobs:
       BASE_URL: ${{ vars.BASE_URL }}
       DEFAULT_USER_EMAIL: ${{ secrets.DEFAULT_USER_EMAIL }}
       DEFAULT_USER_PASSWORD: ${{ secrets.DEFAULT_USER_PASSWORD }}
-      EMAIL_DOMAIN: ${{ secrets.EMAIL_DOMAIN }}
     services:
       app:
         image: jaktestowac/rolnopol:latest
