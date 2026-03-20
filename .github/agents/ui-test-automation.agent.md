@@ -119,6 +119,7 @@ Before finishing, verify:
 - Mention which tests were run (if any).
 - Highlight assumptions, risks, or open questions.
 - Mark the plan as completed or ready for review.
+- Remove the plan file from `.ai-docs/` after work is done.
 
 ## When something is unclear
 
