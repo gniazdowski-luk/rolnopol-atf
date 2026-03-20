@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
+import { createDefaultUser } from "../src/models/userFactory";
 
 test("@smoke @LOGIN-2 successful login redirects to profile with required sections visible, logout returns to home", async ({
   page,
@@ -10,14 +11,11 @@ test("@smoke @LOGIN-2 successful login redirects to profile with required sectio
   const loginPage = new LoginPage(page);
   const profilePage = new ProfilePage(page);
   const homePage = new HomePage(page);
-  const credentials = {
-    email: "emptyuser@rolnopol.demo.pl",
-    password: "demoPass123",
-  };
+  const user = createDefaultUser();
 
   // Act – navigate to login and submit credentials
   await loginPage.goto();
-  await loginPage.login(credentials.email, credentials.password);
+  await loginPage.login(user.email, user.password);
 
   // Assert – redirected to profile page after successful login
   await expect.soft(page).toHaveURL(profilePage.url);
