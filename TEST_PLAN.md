@@ -36,3 +36,4 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 - [x] REG-4 - registration with invalid email should show error
 - [x] REG-5 - registration with too short display name should show error
 - [x] LOGIN-2 - successful login redirects to profile with required sections visible, logout returns to home
+- [x] LOGIN-3 - profile page displays correct user data after login

@@ -9,6 +9,9 @@ export class ProfilePage extends BasePage {
   readonly updateProfileHeading: Locator;
   readonly dangerZoneHeading: Locator;
   readonly logoutButton: Locator;
+  readonly profileHeader: Locator;
+  readonly displayedName: Locator;
+  readonly emailValue: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +25,9 @@ export class ProfilePage extends BasePage {
       name: "Danger Zone",
     });
     this.logoutButton = page.getByTestId("logout-btn").first();
+    this.profileHeader = page.getByTestId("profile-header");
+    this.displayedName = page.getByTestId("displayed-name");
+    this.emailValue = page.getByTestId("email-value");
   }
 
   async logout(): Promise<void> {
