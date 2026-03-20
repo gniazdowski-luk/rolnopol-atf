@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import { ENV } from "./src/config/env";
 
 export default defineConfig({
   testDir: "./tests",
@@ -8,7 +9,7 @@ export default defineConfig({
     ? [["github"], ["html"]]
     : [["html", { open: "never" }]],
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: ENV.BASE_URL,
     trace: "on",
   },
   projects: [

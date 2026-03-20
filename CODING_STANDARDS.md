@@ -65,8 +65,8 @@ test("@smoke @REG-1 register page should be visible and loaded", async ({
 ```
 
 - Omit `// Arrange` when there is no setup needed.
-- Use `expect.soft` for non-critical assertions so the test continues on failure.
-- Use `expect` (hard) for the final or most critical assertion.
+- Each test must have **exactly one hard assertion**, and it must be the **last assertion** in the test. All preceding assertions must use `expect.soft`.
+- URL assertions must reference the `url` property of the corresponding Page Object (e.g. `profilePage.url`) rather than hardcoding strings or regex literals.
 - Do not assert on `page.locator("body")`.
 - Prefer test IDs (`getByTestId`) or semantic locators over CSS selectors.
 - Prefer assertions on meaningful page-specific elements (or URL) for page-load validation; avoid title checks unless the test explicitly verifies the title.

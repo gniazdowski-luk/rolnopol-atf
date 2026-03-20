@@ -26,18 +26,22 @@ Rolnopol Automated Test Framework (ATF) is a Playwright-based end-to-end testing
    npm run install:drivers
    ```
 
+3. Configure environment variables:
+
+   Create a `.env` file based on `.env.example`, then set `BASE_URL` to match your target environment.
+
 ---
 
 ## Test Execution
 
-| Command | Description |
-| --- | --- |
-| `npm test` | Run all tests in headless mode |
-| `npm run test:headed` | Run tests with a visible browser |
-| `npm run test:debug` | Run tests in Playwright debug mode (step-through) |
+| Command                    | Description                                              |
+| -------------------------- | -------------------------------------------------------- |
+| `npm test`                 | Run all tests in headless mode                           |
+| `npm run test:headed`      | Run tests with a visible browser                         |
+| `npm run test:debug`       | Run tests in Playwright debug mode (step-through)        |
 | `npx playwright test --ui` | Open Playwright UI mode for interactive test exploration |
 
-> **Note:** The application under test must be running at the base URL configured in `playwright.config.ts` (default: `http://localhost:3000`) before executing any tests.
+> **Note:** The application under test must be running at `BASE_URL` from `.env` (fallback default: `http://localhost:3000`) before executing any tests.
 
 ---
 
