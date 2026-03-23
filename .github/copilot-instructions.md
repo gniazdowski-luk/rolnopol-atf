@@ -42,3 +42,8 @@ When creating or updating tests:
 - Each test should cover only one scenario.
 - Each test should have only one final hard assertion, though multiple soft assertions are allowed before it.
 - Always document every new test in `TEST_PLAN.md` under the appropriate section (for example, section 3.1 for smoke tests).
+
+## Environment and Credentials
+
+- Never read the `.env` file.
+- Use `#file:.env.ai` for accessing credentials for AI.

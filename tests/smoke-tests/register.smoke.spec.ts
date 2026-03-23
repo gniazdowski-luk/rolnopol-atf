@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { RegisterPage } from "../pages/RegisterPage";
-import { generateEmail } from "../src/helpers/generateEmail";
+import { RegisterPage } from "../../pages/RegisterPage";
+import { generateEmail } from "../../src/helpers/generateEmail";
 
 test("@smoke @REG-1 register page should be visible and loaded", async ({
   page,

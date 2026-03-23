@@ -6,6 +6,7 @@ node_modules/
 /blob-report/
 /.playwright-mcp/
 playwright-report-ci
+/playwright/.auth/
 
 # AI
 .ai-docs/
