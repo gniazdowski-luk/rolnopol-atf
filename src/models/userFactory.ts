@@ -8,9 +8,9 @@ export interface User {
 
 export function createDefaultUser(overrides?: Partial<User>): User {
   return {
-    email: ENV.DEFAULT_USER_EMAIL,
-    password: ENV.DEFAULT_USER_PASSWORD,
-    displayName: ENV.DEFAULT_USER_DISPLAY_NAME,
+    email: ENV.EMPTY_USER_EMAIL,
+    password: ENV.EMPTY_USER_PASSWORD,
+    displayName: ENV.EMPTY_USER_DISPLAY_NAME,
     ...overrides,
   };
 }
