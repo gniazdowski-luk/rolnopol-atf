@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
-import { DocsPage } from "../pages/DocsPage";
-import { HomePage } from "../pages/HomePage";
-import { LoginPage } from "../pages/LoginPage";
-import { SwaggerPage } from "../pages/SwaggerPage";
+import { DocsPage } from "../../pages/DocsPage";
+import { HomePage } from "../../pages/HomePage";
+import { LoginPage } from "../../pages/LoginPage";
+import { SwaggerPage } from "../../pages/SwaggerPage";
 
 test("@smoke @HOME-1 should display Rolnopol in page title", async ({
   page,
