@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
-import { createDefaultUser } from "../src/models/userFactory";
+import { createDemoUser } from "../src/models/userFactory";
 
 test("@smoke @LOGIN-3 profile page displays correct user data after login", async ({
   page,
@@ -10,7 +10,7 @@ test("@smoke @LOGIN-3 profile page displays correct user data after login", asyn
   // Arrange
   const loginPage = new LoginPage(page);
   const profilePage = new ProfilePage(page);
-  const user = createDefaultUser();
+  const user = createDemoUser();
 
   // Act
   await loginPage.goto();
@@ -32,7 +32,7 @@ test("@smoke @LOGIN-2 successful login redirects to profile with required sectio
   const loginPage = new LoginPage(page);
   const profilePage = new ProfilePage(page);
   const homePage = new HomePage(page);
-  const user = createDefaultUser();
+  const user = createDemoUser();
 
   // Act – navigate to login and submit credentials
   await loginPage.goto();

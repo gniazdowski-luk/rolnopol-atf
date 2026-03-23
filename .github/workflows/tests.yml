@@ -19,6 +19,9 @@ jobs:
       EMPTY_USER_EMAIL: ${{ secrets.EMPTY_USER_EMAIL }}
       EMPTY_USER_PASSWORD: ${{ secrets.EMPTY_USER_PASSWORD }}
       EMPTY_USER_DISPLAY_NAME: ${{ secrets.EMPTY_USER_DISPLAY_NAME }}
+      DEMO_USER_EMAIL: ${{ secrets.DEMO_USER_EMAIL }}
+      DEMO_USER_PASSWORD: ${{ secrets.DEMO_USER_PASSWORD }}
+      DEMO_USER_DISPLAY_NAME: ${{ secrets.DEMO_USER_DISPLAY_NAME }}
     services:
       app:
         image: jaktestowac/rolnopol:latest
