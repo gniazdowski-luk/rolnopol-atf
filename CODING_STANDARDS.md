@@ -77,13 +77,14 @@ test("@smoke @REG-1 register page should be visible and loaded", async ({
 
 Include tags in the test title: `@smoke @AREA-N short description`.
 
-| Area          | Prefix  |
-| ------------- | ------- |
-| Home          | `HOME`  |
-| Login         | `LOGIN` |
-| Register      | `REG`   |
-| API / Swagger | `API`   |
-| Docs          | `DOCS`  |
+| Area           | Prefix  |
+| -------------- | ------- |
+| Home           | `HOME`  |
+| Login          | `LOGIN` |
+| Register       | `REG`   |
+| API / Swagger  | `API`   |
+| Docs           | `DOCS`  |
+| Staff & Fields | `SF`    |
 
 Increment `N` per area independently. Check `TEST_PLAN.md` for the next available number.
 
