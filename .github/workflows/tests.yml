@@ -16,9 +16,9 @@ jobs:
     environment: dev
     env:
       BASE_URL: ${{ vars.BASE_URL }}
-      EMPTY_USER_EMAIL: ${{ secrets.EMPTY_USER_EMAIL }}
-      EMPTY_USER_PASSWORD: ${{ secrets.EMPTY_USER_PASSWORD }}
-      EMPTY_USER_DISPLAY_NAME: ${{ secrets.EMPTY_USER_DISPLAY_NAME }}
+      DEFAULT_USER_EMAIL: ${{ secrets.DEFAULT_USER_EMAIL }}
+      DEFAULT_USER_PASSWORD: ${{ secrets.DEFAULT_USER_PASSWORD }}
+      DEFAULT_USER_DISPLAY_NAME: ${{ secrets.DEFAULT_USER_DISPLAY_NAME }}
     services:
       app:
         image: jaktestowac/rolnopol:latest
