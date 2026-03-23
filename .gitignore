@@ -4,14 +4,14 @@ node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
+/.playwright-mcp/
 playwright-report-ci
+/playwright/.auth/
 
 # AI
-/.playwright-mcp/
 .ai-docs/
 
 # Environment
 .env
 .env.*
 !.env.example
-/playwright/.auth/
