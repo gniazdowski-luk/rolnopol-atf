@@ -37,3 +37,4 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 - [x] REG-5 - registration with too short display name should show error
 - [x] LOGIN-2 - successful login redirects to profile with required sections visible, logout returns to home
 - [x] LOGIN-3 - profile page displays correct user data after login
+- [x] SF-1 - adding new field shows confirmation and field appears in list
