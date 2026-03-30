@@ -1,4 +1,4 @@
-name: "Copilot Setup Steps"
+name: Copilot Setup Steps
 
 on:
   workflow_dispatch:
@@ -60,12 +60,3 @@ jobs:
           done
           echo "Service did not become ready in time"
           exit 1
-      - name: Set environment variables for Copilot
-        run: |
-          echo "BASE_URL=${{ vars.BASE_URL }}" >> $GITHUB_ENV
-          echo "EMPTY_USER_EMAIL=${{ secrets.EMPTY_USER_EMAIL }}" >> $GITHUB_ENV
-          echo "EMPTY_USER_PASSWORD=${{ secrets.EMPTY_USER_PASSWORD }}" >> $GITHUB_ENV
-          echo "EMPTY_USER_DISPLAY_NAME=${{ secrets.EMPTY_USER_DISPLAY_NAME }}" >> $GITHUB_ENV
-          echo "DEMO_USER_EMAIL=${{ secrets.DEMO_USER_EMAIL }}" >> $GITHUB_ENV
-          echo "DEMO_USER_PASSWORD=${{ secrets.DEMO_USER_PASSWORD }}" >> $GITHUB_ENV
-          echo "DEMO_USER_DISPLAY_NAME=${{ secrets.DEMO_USER_DISPLAY_NAME }}" >> $GITHUB_ENV
