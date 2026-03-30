@@ -1,0 +1,71 @@
+name: "Copilot Setup Steps"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-steps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    environment: copilot
+    env:
+      BASE_URL: ${{ vars.BASE_URL }}
+      EMPTY_USER_EMAIL: ${{ secrets.EMPTY_USER_EMAIL }}
+      EMPTY_USER_PASSWORD: ${{ secrets.EMPTY_USER_PASSWORD }}
+      EMPTY_USER_DISPLAY_NAME: ${{ secrets.EMPTY_USER_DISPLAY_NAME }}
+      DEMO_USER_EMAIL: ${{ secrets.DEMO_USER_EMAIL }}
+      DEMO_USER_PASSWORD: ${{ secrets.DEMO_USER_PASSWORD }}
+      DEMO_USER_DISPLAY_NAME: ${{ secrets.DEMO_USER_DISPLAY_NAME }}
+    services:
+      app:
+        image: jaktestowac/rolnopol:latest
+        ports:
+          - 3000:3000
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -e "console.log(require('./node_modules/@playwright/test/package.json').version)")" >> $GITHUB_OUTPUT
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      - name: Install Playwright browsers and deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Wait for service to be ready
+        run: |
+          for i in {1..30}; do
+            if curl -s ${{ vars.BASE_URL }} > /dev/null; then
+              echo "Service is ready"
+              exit 0
+            fi
+            echo "Waiting for service... ($i/30)"
+            sleep 2
+          done
+          echo "Service did not become ready in time"
+          exit 1
+      - name: Set environment variables for Copilot
+        run: |
+          echo "BASE_URL=${{ vars.BASE_URL }}" >> $GITHUB_ENV
+          echo "EMPTY_USER_EMAIL=${{ secrets.EMPTY_USER_EMAIL }}" >> $GITHUB_ENV
+          echo "EMPTY_USER_PASSWORD=${{ secrets.EMPTY_USER_PASSWORD }}" >> $GITHUB_ENV
+          echo "EMPTY_USER_DISPLAY_NAME=${{ secrets.EMPTY_USER_DISPLAY_NAME }}" >> $GITHUB_ENV
+          echo "DEMO_USER_EMAIL=${{ secrets.DEMO_USER_EMAIL }}" >> $GITHUB_ENV
+          echo "DEMO_USER_PASSWORD=${{ secrets.DEMO_USER_PASSWORD }}" >> $GITHUB_ENV
+          echo "DEMO_USER_DISPLAY_NAME=${{ secrets.DEMO_USER_DISPLAY_NAME }}" >> $GITHUB_ENV
