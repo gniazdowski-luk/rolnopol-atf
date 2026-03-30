@@ -12,6 +12,13 @@ export class StaffFieldsPage extends BasePage {
   readonly fieldMessage: Locator;
   readonly fieldsSearch: Locator;
 
+  readonly addHerdButton: Locator;
+  readonly herdNameInput: Locator;
+  readonly herdAnimalTypeInput: Locator;
+  readonly addHerdSubmitButton: Locator;
+  readonly herdMessage: Locator;
+  readonly herdsSearch: Locator;
+
   constructor(page: Page) {
     super(page);
     this.addFieldButton = page.locator("#openAddFieldModal");
@@ -22,6 +29,15 @@ export class StaffFieldsPage extends BasePage {
       .getByRole("button", { name: /Add Field/i });
     this.fieldMessage = page.locator("#fieldMessage.message-modern");
     this.fieldsSearch = page.locator("#fieldsSearch");
+
+    this.addHerdButton = page.locator("#openAddHerdModal");
+    this.herdNameInput = page.locator("#herdName");
+    this.herdAnimalTypeInput = page.locator("#herdAnimalType");
+    this.addHerdSubmitButton = page
+      .locator("#addHerdForm")
+      .getByRole("button", { name: /Add Herd/i });
+    this.herdMessage = page.locator("#herdMessage.message-modern");
+    this.herdsSearch = page.locator("#herdsSearch");
   }
 
   async openAddFieldModal(): Promise<void> {
@@ -32,5 +48,15 @@ export class StaffFieldsPage extends BasePage {
     await this.fieldNameInput.fill(name);
     await this.fieldAreaInput.fill(String(area));
     await this.addFieldSubmitButton.click();
+  }
+
+  async openAddHerdModal(): Promise<void> {
+    await this.addHerdButton.click();
+  }
+
+  async addHerd(name: string, animalType: string): Promise<void> {
+    await this.herdNameInput.fill(name);
+    await this.herdAnimalTypeInput.fill(animalType);
+    await this.addHerdSubmitButton.click();
   }
 }
