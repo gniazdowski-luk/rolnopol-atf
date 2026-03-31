@@ -6,12 +6,13 @@ node_modules/
 /blob-report/
 playwright-report-ci
 
-# AI
-/.playwright-mcp/
-.ai-docs/
-
 # Environment
 .env
 .env.*
 !.env.example
 /playwright/.auth/
+
+# AI
+.ai-docs/
+/.playwright-mcp/
+/.playwright-cli/
