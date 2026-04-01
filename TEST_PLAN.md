@@ -39,3 +39,6 @@ Out of scope: performance/load testing, security penetration testing, UI visual 
 - [x] LOGIN-3 - profile page displays correct user data after login
 - [x] SF-1 - adding new field shows confirmation and field appears in list
 - [x] SF-2 - adding new animal group shows it in the animals list
+- [x] FTR-1 - footer should be visible and contain copyright text
+- [x] FTR-2 - footer should have contact navigation link
+- [x] FTR-3 - footer should have jaktestowac.pl and AI_Testers links

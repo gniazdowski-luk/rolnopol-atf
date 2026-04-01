@@ -85,6 +85,7 @@ Include tags in the test title: `@smoke @AREA-N short description`.
 | API / Swagger  | `API`   |
 | Docs           | `DOCS`  |
 | Staff & Fields | `SF`    |
+| Footer         | `FTR`   |
 
 Increment `N` per area independently. Check `TEST_PLAN.md` for the next available number.
 
