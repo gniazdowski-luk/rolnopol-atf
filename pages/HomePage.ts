@@ -3,7 +3,7 @@ import { BasePage } from "./BasePage";
 import { URLs } from "./urls";
 
 export class HomePage extends BasePage {
-  readonly url = URLs.home;
+  protected readonly url = URLs.home;
 
   readonly footer: Locator;
   readonly footerNav: Locator;
