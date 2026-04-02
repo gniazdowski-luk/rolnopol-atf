@@ -34,5 +34,12 @@ export default defineConfig({
         storageState: DEMO_USER_AUTH_FILE,
       },
     },
+    {
+      name: "api-tests",
+      testMatch: "**/tests/api-tests/**/*.spec.ts",
+      use: {
+        baseURL: `${ENV.BASE_URL}/api/v1/`,
+      },
+    },
   ],
 });
