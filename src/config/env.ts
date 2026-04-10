@@ -28,4 +28,7 @@ export const ENV = {
   DEMO_USER_EMAIL: process.env.DEMO_USER_EMAIL as string,
   DEMO_USER_PASSWORD: process.env.DEMO_USER_PASSWORD as string,
   DEMO_USER_DISPLAY_NAME: process.env.DEMO_USER_DISPLAY_NAME as string,
+  TEST_USER_EMAIL: process.env.TEST_USER_EMAIL as string,
+  TEST_USER_PASSWORD: process.env.TEST_USER_PASSWORD as string,
+  TEST_USER_DISPLAY_NAME: process.env.TEST_USER_DISPLAY_NAME as string,
 } as const;

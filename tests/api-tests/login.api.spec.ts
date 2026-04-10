@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { generateEmail } from "../../src/helpers/generateEmail";
-import { createDemoUser } from "../../src/models/userFactory";
+import { createTestUser } from "../../src/models/userFactory";
 
 const LOGIN_ENDPOINT = "login";
 const REGISTER_ENDPOINT = "register";
@@ -8,7 +8,7 @@ const REGISTER_ENDPOINT = "register";
 function createLoginBody(
   overrides?: Partial<{ email: string; password: string }>,
 ) {
-  const user = createDemoUser();
+  const user = createTestUser();
   return { email: user.email, password: user.password, ...overrides };
 }
 
@@ -17,7 +17,7 @@ test.describe("Login API", () => {
     request,
   }) => {
     // Arrange
-    const user = createDemoUser();
+    const user = createTestUser();
     const body = createLoginBody();
 
     // Act

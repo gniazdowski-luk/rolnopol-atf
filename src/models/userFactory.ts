@@ -23,3 +23,12 @@ export function createDemoUser(overrides?: Partial<User>): User {
     ...overrides,
   };
 }
+
+export function createTestUser(overrides?: Partial<User>): User {
+  return {
+    email: ENV.TEST_USER_EMAIL,
+    password: ENV.TEST_USER_PASSWORD,
+    displayName: ENV.TEST_USER_DISPLAY_NAME,
+    ...overrides,
+  };
+}
