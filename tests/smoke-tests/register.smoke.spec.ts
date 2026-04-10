@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { RegisterPage } from "../../pages/RegisterPage";
+import { URLs } from "../../pages/urls";
 import { generateEmail } from "../../src/helpers/generateEmail";
 
 test("@smoke @REG-1 register page should be visible and loaded", async ({
@@ -36,7 +37,7 @@ test("@smoke @REG-2 successful user registration", async ({ page }) => {
   await expect
     .soft(registerPage.alert)
     .toContainText("Registration successful!");
-  await expect(page).toHaveURL(/login\.html/);
+  await expect(page).toHaveURL(URLs.login);
 });
 
 test("@smoke @REG-3 registration with too short password should show error", async ({
@@ -50,7 +51,7 @@ test("@smoke @REG-3 registration with too short password should show error", asy
   await registerPage.register("valid@email.com", "ab", "TestUser");
 
   // Assert
-  await expect.soft(page).toHaveURL(/register\.html/);
+  await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
     "Password must be at least 3 characters",
   );
@@ -69,7 +70,7 @@ test("@smoke @REG-4 registration with invalid email should show error", async ({
   await registerPage.submitButton.click();
 
   // Assert
-  await expect.soft(page).toHaveURL(/register\.html/);
+  await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
     "Please enter a valid email address",
   );
@@ -89,7 +90,7 @@ test("@smoke @REG-5 registration with too short display name should show error",
   await registerPage.submitButton.click();
 
   // Assert
-  await expect.soft(page).toHaveURL(/register\.html/);
+  await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
     "Display name must be at least 3 characters",
   );

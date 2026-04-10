@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { HomePage } from "../../pages/HomePage";
 import { ProfilePage } from "../../pages/ProfilePage";
+import { URLs } from "../../pages/urls";
 import { createDemoUser } from "../../src/models/userFactory";
 
 test("@smoke @LOGIN-2 profile sections are visible and logout returns to home", async ({
@@ -8,8 +8,6 @@ test("@smoke @LOGIN-2 profile sections are visible and logout returns to home", 
 }) => {
   // Arrange
   const profilePage = new ProfilePage(page);
-  const homePage = new HomePage(page);
-
   // Act – navigate to profile (authenticated via stored session)
   await profilePage.goto();
 
@@ -22,7 +20,7 @@ test("@smoke @LOGIN-2 profile sections are visible and logout returns to home", 
   await profilePage.logout();
 
   // Assert – redirected to home page
-  await expect(page).toHaveURL(homePage.url);
+  await expect(page).toHaveURL(URLs.home);
 });
 
 test("@smoke @LOGIN-3 profile page displays correct user data", async ({
