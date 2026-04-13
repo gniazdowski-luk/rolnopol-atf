@@ -1,9 +1,10 @@
-import { expect, test } from "@playwright/test";
-import { ProfilePage } from "../../pages/ProfilePage";
-import { URLs } from "../../pages/urls";
-import { createDemoUser } from "../../src/models/userFactory";
+import { expect, test } from '@playwright/test';
 
-test("@smoke @LOGIN-2 profile sections are visible and logout returns to home", async ({
+import { ProfilePage } from '../../pages/ProfilePage';
+import { URLs } from '../../pages/urls';
+import { createDemoUser } from '../../src/models/userFactory';
+
+test('@smoke @LOGIN-2 profile sections are visible and logout returns to home', async ({
   page,
 }) => {
   // Arrange
@@ -23,7 +24,7 @@ test("@smoke @LOGIN-2 profile sections are visible and logout returns to home", 
   await expect(page).toHaveURL(URLs.home);
 });
 
-test("@smoke @LOGIN-3 profile page displays correct user data", async ({
+test('@smoke @LOGIN-3 profile page displays correct user data', async ({
   page,
 }) => {
   // Arrange

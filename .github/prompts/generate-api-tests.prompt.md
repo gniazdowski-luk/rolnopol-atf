@@ -1,6 +1,6 @@
 ---
 name: generate-api-tests
-description: "Generate Playwright REST API tests for a specified endpoint or module. Use when: creating API tests, adding new API test coverage, scaffolding api spec files."
+description: 'Generate Playwright REST API tests for a specified endpoint or module. Use when: creating API tests, adding new API test coverage, scaffolding api spec files.'
 argument-hint: "Endpoint or module name (e.g. 'register', 'login', 'users')"
 agent: agent
 ---

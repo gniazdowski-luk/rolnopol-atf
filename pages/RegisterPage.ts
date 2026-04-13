@@ -1,6 +1,7 @@
-import { type Locator, type Page } from "@playwright/test";
-import { BasePage } from "./BasePage";
-import { URLs } from "./urls";
+import { type Locator, type Page } from '@playwright/test';
+
+import { BasePage } from './BasePage';
+import { URLs } from './urls';
 
 export class RegisterPage extends BasePage {
   protected readonly url = URLs.register;
@@ -15,16 +16,20 @@ export class RegisterPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
-    this.form = page.getByTestId("register-form");
-    this.subtitle = page.getByTestId("register-subtitle");
-    this.emailInput = page.getByTestId("email-input");
-    this.displayNameInput = page.getByTestId("display-name-input");
-    this.passwordInput = page.getByTestId("password-input");
-    this.submitButton = page.getByTestId("register-submit-btn");
-    this.alert = page.getByRole("alert");
+    this.form = page.getByTestId('register-form');
+    this.subtitle = page.getByTestId('register-subtitle');
+    this.emailInput = page.getByTestId('email-input');
+    this.displayNameInput = page.getByTestId('display-name-input');
+    this.passwordInput = page.getByTestId('password-input');
+    this.submitButton = page.getByTestId('register-submit-btn');
+    this.alert = page.getByRole('alert');
   }
 
-  async register(email: string, password: string, displayName?: string) {
+  async register(
+    email: string,
+    password: string,
+    displayName?: string,
+  ): Promise<void> {
     await this.emailInput.fill(email);
     if (displayName !== undefined) {
       await this.displayNameInput.fill(displayName);

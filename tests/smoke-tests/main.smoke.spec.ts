@@ -1,10 +1,11 @@
-import { expect, test } from "@playwright/test";
-import { DocsPage } from "../../pages/DocsPage";
-import { HomePage } from "../../pages/HomePage";
-import { LoginPage } from "../../pages/LoginPage";
-import { SwaggerPage } from "../../pages/SwaggerPage";
+import { expect, test } from '@playwright/test';
 
-test("@smoke @HOME-1 should display Rolnopol in page title", async ({
+import { DocsPage } from '../../pages/DocsPage';
+import { HomePage } from '../../pages/HomePage';
+import { LoginPage } from '../../pages/LoginPage';
+import { SwaggerPage } from '../../pages/SwaggerPage';
+
+test('@smoke @HOME-1 should display Rolnopol in page title', async ({
   page,
 }) => {
   // Arrange
@@ -20,14 +21,14 @@ test("@smoke @HOME-1 should display Rolnopol in page title", async ({
   await expect(page).toHaveTitle(expected.titlePattern);
 });
 
-test("@smoke @LOGIN-1 login page should be visible and loaded", async ({
+test('@smoke @LOGIN-1 login page should be visible and loaded', async ({
   page,
 }) => {
   // Arrange
   const loginPage = new LoginPage(page);
   const expected = {
-    subtitle: "User Login & Account Access",
-    submitButtonText: "Login",
+    subtitle: 'User Login & Account Access',
+    submitButtonText: 'Login',
   };
 
   // Act
@@ -39,7 +40,7 @@ test("@smoke @LOGIN-1 login page should be visible and loaded", async ({
   await expect(loginPage.submitButton).toHaveText(expected.submitButtonText);
 });
 
-test("@smoke @API-1 swagger page should be visible and loaded", async ({
+test('@smoke @API-1 swagger page should be visible and loaded', async ({
   page,
 }) => {
   // Arrange
@@ -53,13 +54,13 @@ test("@smoke @API-1 swagger page should be visible and loaded", async ({
   await expect(swaggerPage.swaggerTitle).toContainText(/Rolnopol/);
 });
 
-test("@smoke @DOCS-1 docs page should be visible and loaded", async ({
+test('@smoke @DOCS-1 docs page should be visible and loaded', async ({
   page,
 }) => {
   // Arrange
   const docsPage = new DocsPage(page);
   const expected = {
-    sidebarTitle: "Contents",
+    sidebarTitle: 'Contents',
   };
 
   // Act

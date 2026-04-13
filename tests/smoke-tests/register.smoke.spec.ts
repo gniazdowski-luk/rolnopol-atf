@@ -1,16 +1,17 @@
-import { expect, test } from "@playwright/test";
-import { RegisterPage } from "../../pages/RegisterPage";
-import { URLs } from "../../pages/urls";
-import { generateEmail } from "../../src/helpers/generateEmail";
+import { expect, test } from '@playwright/test';
 
-test("@smoke @REG-1 register page should be visible and loaded", async ({
+import { RegisterPage } from '../../pages/RegisterPage';
+import { URLs } from '../../pages/urls';
+import { generateEmail } from '../../src/helpers/generateEmail';
+
+test('@smoke @REG-1 register page should be visible and loaded', async ({
   page,
 }) => {
   // Arrange
   const registerPage = new RegisterPage(page);
   const expected = {
-    subtitle: "Create Your User Account",
-    submitButtonText: "Create Account",
+    subtitle: 'Create Your User Account',
+    submitButtonText: 'Create Account',
   };
 
   // Act
@@ -24,23 +25,23 @@ test("@smoke @REG-1 register page should be visible and loaded", async ({
   );
 });
 
-test("@smoke @REG-2 successful user registration", async ({ page }) => {
+test('@smoke @REG-2 successful user registration', async ({ page }) => {
   // Arrange
   const registerPage = new RegisterPage(page);
   const email = generateEmail();
 
   // Act
   await registerPage.goto();
-  await registerPage.register(email, "test123", "Test User");
+  await registerPage.register(email, 'test123', 'Test User');
 
   // Assert
   await expect
     .soft(registerPage.alert)
-    .toContainText("Registration successful!");
+    .toContainText('Registration successful!');
   await expect(page).toHaveURL(URLs.login);
 });
 
-test("@smoke @REG-3 registration with too short password should show error", async ({
+test('@smoke @REG-3 registration with too short password should show error', async ({
   page,
 }) => {
   // Arrange
@@ -48,16 +49,16 @@ test("@smoke @REG-3 registration with too short password should show error", asy
 
   // Act
   await registerPage.goto();
-  await registerPage.register("valid@email.com", "ab", "TestUser");
+  await registerPage.register('valid@email.com', 'ab', 'TestUser');
 
   // Assert
   await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
-    "Password must be at least 3 characters",
+    'Password must be at least 3 characters',
   );
 });
 
-test("@smoke @REG-4 registration with invalid email should show error", async ({
+test('@smoke @REG-4 registration with invalid email should show error', async ({
   page,
 }) => {
   // Arrange
@@ -65,18 +66,18 @@ test("@smoke @REG-4 registration with invalid email should show error", async ({
 
   // Act
   await registerPage.goto();
-  await registerPage.emailInput.fill("notanemail");
-  await registerPage.passwordInput.fill("test123");
+  await registerPage.emailInput.fill('notanemail');
+  await registerPage.passwordInput.fill('test123');
   await registerPage.submitButton.click();
 
   // Assert
   await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
-    "Please enter a valid email address",
+    'Please enter a valid email address',
   );
 });
 
-test("@smoke @REG-5 registration with too short display name should show error", async ({
+test('@smoke @REG-5 registration with too short display name should show error', async ({
   page,
 }) => {
   // Arrange
@@ -84,14 +85,14 @@ test("@smoke @REG-5 registration with too short display name should show error",
 
   // Act
   await registerPage.goto();
-  await registerPage.emailInput.fill("valid@email.com");
-  await registerPage.displayNameInput.fill("AB");
-  await registerPage.passwordInput.fill("test123");
+  await registerPage.emailInput.fill('valid@email.com');
+  await registerPage.displayNameInput.fill('AB');
+  await registerPage.passwordInput.fill('test123');
   await registerPage.submitButton.click();
 
   // Assert
   await expect.soft(page).toHaveURL(URLs.register);
   await expect(registerPage.alert).toContainText(
-    "Display name must be at least 3 characters",
+    'Display name must be at least 3 characters',
   );
 });

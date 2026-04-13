@@ -1,13 +1,13 @@
-import "dotenv/config";
+import 'dotenv/config';
 
 const requiredEnvVars = [
-  "BASE_URL",
-  "EMPTY_USER_EMAIL",
-  "EMPTY_USER_PASSWORD",
-  "EMPTY_USER_DISPLAY_NAME",
-  "DEMO_USER_EMAIL",
-  "DEMO_USER_PASSWORD",
-  "DEMO_USER_DISPLAY_NAME",
+  'BASE_URL',
+  'EMPTY_USER_EMAIL',
+  'EMPTY_USER_PASSWORD',
+  'EMPTY_USER_DISPLAY_NAME',
+  'DEMO_USER_EMAIL',
+  'DEMO_USER_PASSWORD',
+  'DEMO_USER_DISPLAY_NAME',
 ] as const;
 
 function validateEnv(vars: readonly string[]): void {

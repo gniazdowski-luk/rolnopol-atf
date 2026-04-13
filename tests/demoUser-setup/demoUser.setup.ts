@@ -1,9 +1,10 @@
-import { test as setup } from "@playwright/test";
-import { LoginPage } from "../../pages/LoginPage";
-import { DEMO_USER_AUTH_FILE } from "../../playwright.config";
-import { createDemoUser } from "../../src/models/userFactory";
+import { test as setup } from '@playwright/test';
 
-setup("authenticate as demo user", async ({ page }) => {
+import { LoginPage } from '../../pages/LoginPage';
+import { DEMO_USER_AUTH_FILE } from '../../playwright.config';
+import { createDemoUser } from '../../src/models/userFactory';
+
+setup('authenticate as demo user', async ({ page }) => {
   const loginPage = new LoginPage(page);
   const user = createDemoUser();
 

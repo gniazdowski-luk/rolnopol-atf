@@ -2,15 +2,15 @@
 description: Expert agent for generating and maintaining REST API tests using Playwright, based on user-defined endpoints and OpenAPI schemas.
 tools:
   [
-    "vscode",
-    "execute",
-    "read",
-    "agent",
-    "edit",
-    "search",
-    "web",
-    "playwright/*",
-    "todo",
+    'vscode',
+    'execute',
+    'read',
+    'agent',
+    'edit',
+    'search',
+    'web',
+    'playwright/*',
+    'todo',
   ]
 name: api-test-automation
 ---
