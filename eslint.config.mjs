@@ -12,6 +12,7 @@ export default [
       'playwright-report/**',
       'playwright-report-ci/**',
       'test-results/**',
+      'tmp/**',
     ],
   },
   { files: ['**/*.ts'] },
