@@ -1,0 +1,5 @@
+package-lock.json
+playwright-report
+playwright-report-ci
+test-results
+tmp
