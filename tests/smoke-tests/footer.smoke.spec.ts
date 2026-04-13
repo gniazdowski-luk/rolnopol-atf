@@ -1,7 +1,8 @@
-import { expect, test } from "@playwright/test";
-import { HomePage } from "../../pages/HomePage";
+import { expect, test } from '@playwright/test';
 
-test("@smoke @FTR-1 footer should be visible and contain copyright text", async ({
+import { HomePage } from '../../pages/HomePage';
+
+test('@smoke @FTR-1 footer should be visible and contain copyright text', async ({
   page,
 }) => {
   // Arrange
@@ -16,7 +17,7 @@ test("@smoke @FTR-1 footer should be visible and contain copyright text", async 
   await expect(homePage.footer).toContainText(expected.copyrightPattern);
 });
 
-test("@smoke @FTR-2 footer should have contact navigation link", async ({
+test('@smoke @FTR-2 footer should have contact navigation link', async ({
   page,
 }) => {
   // Arrange
@@ -30,7 +31,7 @@ test("@smoke @FTR-2 footer should have contact navigation link", async ({
   await expect(homePage.footerContactLink).toBeVisible();
 });
 
-test("@smoke @FTR-3 footer should have jaktestowac.pl and AI_Testers links", async ({
+test('@smoke @FTR-3 footer should have jaktestowac.pl and AI_Testers links', async ({
   page,
 }) => {
   // Arrange

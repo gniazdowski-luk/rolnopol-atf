@@ -48,12 +48,12 @@ async goto() {
 Tests live in `tests/`. Use the **Arrange / Act / Assert** pattern with inline comments.
 
 ```ts
-test("@smoke @REG-1 register page should be visible and loaded", async ({
+test('@smoke @REG-1 register page should be visible and loaded', async ({
   page,
 }) => {
   // Arrange
   const registerPage = new RegisterPage(page);
-  const expected = { subtitle: "Create Your User Account" };
+  const expected = { subtitle: 'Create Your User Account' };
 
   // Act
   await registerPage.goto();

@@ -1,6 +1,7 @@
-import { type Locator, type Page } from "@playwright/test";
-import { BasePage } from "./BasePage";
-import { URLs } from "./urls";
+import { type Locator, type Page } from '@playwright/test';
+
+import { BasePage } from './BasePage';
+import { URLs } from './urls';
 
 export class ProfilePage extends BasePage {
   readonly url = URLs.profile;
@@ -15,19 +16,19 @@ export class ProfilePage extends BasePage {
 
   constructor(page: Page) {
     super(page);
-    this.profileInformationHeading = page.getByRole("heading", {
-      name: "Profile Information",
+    this.profileInformationHeading = page.getByRole('heading', {
+      name: 'Profile Information',
     });
-    this.updateProfileHeading = page.getByRole("heading", {
-      name: "Update Profile",
+    this.updateProfileHeading = page.getByRole('heading', {
+      name: 'Update Profile',
     });
-    this.dangerZoneHeading = page.getByRole("heading", {
-      name: "Danger Zone",
+    this.dangerZoneHeading = page.getByRole('heading', {
+      name: 'Danger Zone',
     });
-    this.logoutButton = page.getByTestId("logout-btn").first();
-    this.profileHeader = page.getByTestId("profile-header");
-    this.displayedName = page.getByTestId("displayed-name");
-    this.emailValue = page.getByTestId("email-value");
+    this.logoutButton = page.getByTestId('logout-btn').first();
+    this.profileHeader = page.getByTestId('profile-header');
+    this.displayedName = page.getByTestId('displayed-name');
+    this.emailValue = page.getByTestId('email-value');
   }
 
   async logout(): Promise<void> {
